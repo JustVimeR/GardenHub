@@ -1,0 +1,91 @@
+<div class="container">
+    <div class="login__wrapper">
+      <div class="login__window">
+        <h1 class="header">Реєстрація</h1>
+        <form (ngSubmit)="registrationDetails(user)" [formGroup]="user">
+            <div class="form-group">
+            <div class="subheader-exp">Ваш досвід у садівництві</div>
+              <input type="text"
+                     class="form-control"
+                     placeholder="Введи досвід у садівництві"
+                     formControlName="experience"
+                     
+              >
+              <div
+                class="invalid-feedback d-block"
+                *ngIf="(user.get('experience')?.hasError('minlength')) && user.get('experience')?.touched">
+                Введіть коректний досвід
+              </div>
+              <div
+                class=" invalid-feedback d-block"
+                *ngIf="user.get('experience')?.hasError('required') && user.get('experience')?.touched">
+                Досвід є обов'язковим для заповнення
+              </div>
+            </div>
+            <div class="form-group">
+                <div class="subheader-city">Міста обслуговування</div>
+                <mat-form-field class="example-chip-list">
+                  <mat-label>Міста обслуговування</mat-label>
+                  <mat-chip-grid #chipGrid aria-label="Виюір міста">
+                    <mat-chip-row *ngFor="let city of cities" (removed)="removeCity(city)">
+                      {{city}}
+                      <button matChipRemove [attr.aria-label]="'remove ' + city">
+                        <mat-icon>cancel</mat-icon>
+                      </button>
+                    </mat-chip-row>
+                  </mat-chip-grid>
+                  <input placeholder="Додати місто..." #fruitInput [formControl]="cityCtrl"
+                    [matChipInputFor]="chipGrid" [matAutocomplete]="auto"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                    (matChipInputTokenEnd)="addCity($event)"/>
+                  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectedCity($event)">
+                    <mat-option *ngFor="let city of filteredCities | async" [value]="city">
+                      {{city}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+
+                <div class="subheader-price">Цінова політика</div>
+                </div>
+                <div class='form-price'>
+                <div class="form-group">
+                    <input type="number"
+                           class="form-cost"
+                           placeholder="Від:"
+                           formControlName="minPrice"   
+                    >
+                    <div
+                      class="invalid-feedback d-block"
+                      *ngIf="(user.get('minPrice')?.hasError('minlength')) && user.get('minPrice')?.touched">
+                      Введіть коректниу ціну
+                    </div>
+                    <div
+                      class=" invalid-feedback d-block"
+                      *ngIf="user.get('minPrice')?.hasError('required') && user.get('minPrice')?.touched">
+                     Ціна є обов'язковою для заповнення
+                    </div>
+                  </div>
+                  <div class="form-group">
+                      <input type="number"
+                             class="form-cost"
+                             placeholder="До:"
+                             formControlName="maxPrice"   
+                      >
+                      <div
+                        class="invalid-feedback d-block"
+                        *ngIf="(user.get('maxPrice')?.hasError('minlength')) && user.get('maxPrice')?.touched">
+                        Введіть коректниу ціну
+                      </div>
+                      <div
+                        class=" invalid-feedback d-block"
+                        *ngIf="user.get('maxPrice')?.hasError('required') && user.get('maxPrice')?.touched">
+                       Ціна є обов'язковою для заповнення
+                      </div>
+                    </div>
+                  </div>
+            <button type="submit" class="btn-login">Продовжити</button>
+          </form>
+            
+      </div>
+    </div>
+  </div>

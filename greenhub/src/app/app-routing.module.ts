@@ -1,7 +1,21 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {RouterModule, Routes} from "@angular/router";
+import {AuthComponent} from "./components/auth/auth/auth.component";
+import {NgModule} from "@angular/core";
+import {Path} from "./models/enums/path";
+import { isAuthGuard } from "./components/guards/is-auth.guard";
 
-const routes: Routes = [];
+
+const routes: Routes = [
+  { path: '', redirectTo: Path.auth, pathMatch: 'full' },
+  { path: Path.auth, component: AuthComponent },
+  {
+    path: 'crm',
+    loadChildren: () => import('./components/main/main.module').then(m => m.MainModule),
+    canActivate: [isAuthGuard]
+  },
+  { path: '**', redirectTo: Path.auth }
+];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
