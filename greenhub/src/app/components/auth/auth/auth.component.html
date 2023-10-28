@@ -13,6 +13,10 @@
     *ngIf="activePage === Page.restorePassword"
   ></app-restore-password>
   <app-registration-details 
+  (registrationServices)="changePage(Page.registrationServices)"
   *ngIf="activePage === Page.registrationDetails">
   </app-registration-details>
+  <app-registration-services
+  *ngIf="activePage === Page.registrationServices">
+  </app-registration-services>
 </div>
