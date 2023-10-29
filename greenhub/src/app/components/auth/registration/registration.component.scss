@@ -31,9 +31,13 @@
         font-weight: 400;
         text-align: center;
     }
+    .form-group {
+    width: 100%;
+}
+
     .form-control{
         display: block;
-        margin: 14.5px auto;
+        margin: 5px auto;
         width: 210px;
         height: 60px;
         border-radius: 10px;
