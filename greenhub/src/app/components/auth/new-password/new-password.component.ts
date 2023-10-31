@@ -1,7 +1,5 @@
-
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-new-password',
@@ -10,16 +8,20 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NewPasswordComponent {
   passwordForm: FormGroup;
+  passwordVisibility: { [key: string]: boolean } = {};
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(private fb: FormBuilder) {
     this.passwordForm = this.fb.group({
-      // new_password: ['', [Validators.required, Validators.minLength(8)]
+      // new_password: ['', [Validators.required, Validators.minLength(8)],
+      // repeat_password: ['', [Validators.required]]
     });
   }
 
-  resetPassword() {
-    if (this.passwordForm.valid) {
-      // this.authService.resetPassword(this.passwordForm.value.new_password);
-    }
+  togglePasswordVisibility(field: string) {
+    this.passwordVisibility[field] = !this.passwordVisibility[field];
+  }
+
+  isPasswordVisible(field: string) {
+    return this.passwordVisibility[field];
   }
 }

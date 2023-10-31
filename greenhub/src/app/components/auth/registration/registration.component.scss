@@ -37,8 +37,7 @@
 
     .form-control{
         display: block;
-        margin: 5px auto;
-        width: 210px;
+        margin: 15px auto;
         height: 60px;
         border-radius: 10px;
         border: 1px solid rgba(147, 144, 144, 0.82);
@@ -72,7 +71,7 @@
         font-size: 20px;
         font-weight: 700;
         text-align: center;
-        margin-top: 78px;
+        margin-top: 50px;
     }
     .role-text{
         margin-top: 45px;
@@ -106,7 +105,7 @@
     }
     .agree-check{
         display: block;
-        margin-top: 46px;
+        margin-top: 20px;
         margin-left: 115px;
         color: rgba(83, 83, 83, 0.78);
         font-size: 18px;
@@ -121,3 +120,9 @@
         margin-left: 115px;
     }
 }
+
+.login-add-button a {
+    color: #000; /* Set the color to black */
+    text-decoration: none; /* Remove the underline */
+  }
+  
