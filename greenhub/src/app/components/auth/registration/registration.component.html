@@ -5,111 +5,93 @@
         <div class="subheader">Створіть свій обліковий запис</div>
         
         <form class="form-wrapper" (ngSubmit)="registration(user)" [formGroup]="user">
-            <div class="form-group">
+            <div class="form-group input-with-icon">
                 <input type="text"
                        class="form-control"
                        placeholder="*Введи і'мя"
-                       formControlName="userName"
+                       formControlName="firstName"
                 >
-                <div
-                  class="invalid-feedback d-block"
-                  *ngIf="(user.get('userName')?.hasError('minlength')) && user.get('userName')?.touched">
-                  Введіть коректне імя
-                </div>
-                <div
-                  class="invalid-feedback d-block"
-                  *ngIf="user.get('userName')?.hasError('required') && user.get('userName')?.touched">
-                  Імя є обов'язковим для заповнення
-                </div>
+                <div class="icon-container" 
+                *ngIf="(user.get('firstName')?.hasError('minlength') || user.get('firstName')?.hasError('required')) && user.get('firstName')?.touched">
+               <svg class="info-icon" viewBox="0 0 24 24" width="25" height="25">
+                   <circle cx="12" cy="12" r="11" fill="none" />
+                   <line x1="12" y1="6" x2="12" y2="8" />
+                   <line x1="12" y1="10" x2="12" y2="18" />
+               </svg>
+               <span class="tooltip-text">{{ getFirstNameErrorMessage() }}</span>
+           </div>
               </div>
-              <div class="form-group">
+              <div class="form-group input-with-icon">
                 <input type="text"
                        class="form-control"
                        placeholder="*Введи прізвище"
-                       formControlName="userSurname"
+                       formControlName="lastName"
                 >
-                <div
-                  class="invalid-feedback d-block"
-                  *ngIf="(user.get('userSurname')?.hasError('minlength')) && user.get('userSurname')?.touched">
-                  Введіть коректне прізвище
-                </div>
-                <div
-                  class="invalid-feedback d-block"
-                  *ngIf="user.get('userSurname')?.hasError('required') && user.get('userSurname')?.touched">
-                  Введіть коректне прізвище
+                <div class="icon-container" 
+                *ngIf="(user.get('lastName')?.hasError('minlength') || user.get('lastName')?.hasError('required')) && user.get('lastName')?.touched">
+                <svg class="info-icon" viewBox="0 0 24 24" width="25" height="25">
+                    <circle cx="12" cy="12" r="11" fill="none" />
+                    <line x1="12" y1="6" x2="12" y2="8" />
+                    <line x1="12" y1="10" x2="12" y2="18" />
+                </svg>
+                <span class="tooltip-text">{{ getLastNameErrorMessage() }}</span>
                 </div>
               </div>
-            <div class="form-group">
+            <div class="form-group input-with-icon">
               <input type="email"
                      class="form-control"
                      placeholder="*Введи email"
                      formControlName="email"
                      emailMask
               >
-              <div
-                class="invalid-feedback d-block"
-                *ngIf="(user.get('email')?.hasError('minlength')) && user.get('email')?.touched">
-                Введіть коректний e-mail
-              </div>
-              <div
-                class="invalid-feedback d-block"
-                *ngIf="user.get('email')?.hasError('required') && user.get('email')?.touched">
-                E-mail є обов'язковим для заповнення
+              <div class="icon-container" 
+                *ngIf="(user.get('email')?.hasError('minlength') || user.get('email')?.hasError('required')) && user.get('email')?.touched">
+                  <svg class="info-icon" viewBox="0 0 24 24" width="25" height="25">
+                    <circle cx="12" cy="12" r="11" fill="none" />
+                    <line x1="12" y1="6" x2="12" y2="8" />
+                    <line x1="12" y1="10" x2="12" y2="18" />
+                  </svg>
+                  <span class="tooltip-text">{{ getEmailErrorMessage() }}</span>
               </div>
             </div>
-            <div class="form-group">
-              <input type="password"
-                     formControlName="password"
-                     class="form-control"
-                     placeholder="*Придумай пароль">
-              <div
-                class="invalid-feedback d-block"
-                *ngIf="user.get('password')?.hasError('required') && user.get('password')?.touched">
-                Пароль є обов'язковим для заповнення
-              </div>
-              <pre class="invalid-feedback d-block"
-                   *ngIf="(user.get('password')?.hasError('pattern') || user.get('password')?.hasError('minlength')) && user.get('password')?.touched">
-      Пароль занадто простий, мінімум 8 символів.
-      Додайте принаймні:
-        • одну букву у нижньому регістрі
-        • одну букву у верхньому регістрі
-        • одну цифру
-        • один символ
-      Букви використовуйте латинські.
-                </pre>
-            </div>
-            <div class="form-group mg-b-50" *ngIf="hasCode">
+
+            <div class="form-group input-with-icon">
               <input type="text"
                      class="form-control"
-                     placeholder="Введи код підтвердження"
-                     formControlName="code"
+                     placeholder="*username"
+                     formControlName="userName"
               >
+              <div class="icon-container" 
+              *ngIf="user.get('userName')?.hasError('minlength') || user.get('userName')?.hasError('required')" 
+              [title]="getUserNameErrorMessage()">
+                  <svg class="info-icon" viewBox="0 0 24 24" width="25" height="25">
+                      <circle cx="12" cy="12" r="11" fill="none" />
+                      <line x1="12" y1="6" x2="12" y2="8" />
+                      <line x1="12" y1="10" x2="12" y2="18" />
+                  </svg>
+                  <span class="tooltip-text">{{ getUserNameErrorMessage() }}</span>
+              </div>
             </div>
+
+            <div class="form-group input-with-icon">
+              <input type="password"
+                formControlName="password"
+                class="form-control"
+                placeholder="*Придумай пароль"
+                (ngModelChange)="updateConfirmPassword($event)">
+                <div class="icon-container" 
+                *ngIf="(user.get('password')?.hasError('pattern') || user.get('password')?.hasError('minlength') || user.get('password')?.hasError('required')) && user.get('password')?.touched">
+                    <svg class="info-icon" viewBox="0 0 24 24" width="25" height="25">
+                      <circle cx="12" cy="12" r="11" fill="none" stroke="red" />
+                      <line x1="12" y1="6" x2="12" y2="8" stroke="red" />
+                      <line x1="12" y1="10" x2="12" y2="18" stroke="red" />
+                    </svg>
+                  <span class="tooltip-text">{{ getPasswordErrorMessage() }}</span>
+                </div>
+            </div>
+            <button type="submit" class="btn-login" >Зареєструватись</button>
           </form>
-          <div class="role-text">
-            Ваша роль:
-          </div>
-          <div class="role-wrapper">
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                    Професіонал
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
-                <label class="form-check-label" for="flexRadioDefault2">
-                    Домовласник
-                </label>
-              </div>
-        </div>
-        <div class="form-check agree-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
-                Погоджуюсь із політикою сервісу
-            </label>
-          </div>
-          <button type="submit" class="btn-login" (click)="goToRegistrationDetails($event)">Продовжити</button>
+         
           <p class="login-router">Вже є обліковий запис? <a href="" (click)="goToSignIn($event)"><b>Увійти</b></a></p>
       </div>
     </div>

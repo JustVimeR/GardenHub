@@ -5,18 +5,10 @@
     *ngIf="activePage === Page.login"></app-login>
   <app-registration
     (signIn)="changePage(Page.login)"
-    (registrationDetails)="changePage(Page.registrationDetails)"
     *ngIf="activePage === Page.registration">
   </app-registration>
   <app-restore-password
     (back)="changePage(Page.login)"
     *ngIf="activePage === Page.restorePassword"
   ></app-restore-password>
-  <app-registration-details 
-  (registrationServices)="changePage(Page.registrationServices)"
-  *ngIf="activePage === Page.registrationDetails">
-  </app-registration-details>
-  <app-registration-services
-  *ngIf="activePage === Page.registrationServices">
-  </app-registration-services>
 </div>
