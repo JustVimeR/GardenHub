@@ -6,13 +6,11 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatIconModule } from "@angular/material/icon";
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { ProfileWarningComponent } from "./components/general/profile-warning/profile-warning.component";
-import { ProfileSettingsModule } from "./components/profile-settings/profile-settings.module";
 
 @NgModule({
     declarations: [
       // COMPONENTS
       ProfileWarningComponent
-
       // DIRECTIVES
     
       // PIPES
@@ -21,7 +19,6 @@ import { ProfileSettingsModule } from "./components/profile-settings/profile-set
     exports: [
       // COMPONENTS
       ProfileWarningComponent,
-
       // DIRECTIVES
   
       // PIPES

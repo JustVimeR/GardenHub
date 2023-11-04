@@ -18,11 +18,6 @@ const mainRoutes: Routes = [
           loadChildren: () => import('../main-page/main-page.module').then(m => m.MainPageModule),
           canActivate: [StopRouteGuard]
         },
-        {
-          path: Path.profileSettings,
-          loadChildren: () => import('../profile-settings/profile-settings.module').then(m => m.ProfileSettingsModule),
-          canActivate: [StopRouteGuard]
-        },
         {path: Path.error, component: ErrorPageComponent},
         {path: '**', redirectTo: Path.mainPage}
       ]
