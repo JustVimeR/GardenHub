@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-restore-password',
@@ -11,9 +11,9 @@ export class RestorePasswordComponent {
   restoreForm: FormGroup;
   emailSent: boolean = false; 
 
-  constructor(private fb: FormBuilder) {
-    this.restoreForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]]
+  constructor() {
+    this.restoreForm = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email]),
     });
   }
 
