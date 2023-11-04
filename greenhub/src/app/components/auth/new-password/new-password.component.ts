@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-interface PasswordVisibility {
-  [key: string]: boolean;
-}
 
 @Component({
   selector: 'app-new-password',
@@ -17,7 +14,7 @@ export class NewPasswordComponent {
     repeat_password: ['', [Validators.required, Validators.minLength(8)]]
   });
 
-  passwordVisibility: PasswordVisibility = {
+  passwordVisibility: any = {
     new_password: false,
     repeat_password: false
   };
