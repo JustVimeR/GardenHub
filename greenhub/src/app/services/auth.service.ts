@@ -35,22 +35,30 @@ export class AuthService extends StorageService {
   }
 
   login(body: object): Observable<any> {
-    return this.http.post(`${this.API_URL}/sessions`, body, {});
+    return this.http.post(`${this.API_URL}/Account/authenticate`, body, {});
   }
 
   logout(): Observable<any> {
-    return this.http.get(`${this.API_URL}/user/logout`, {});
+    return this.http.get(`${this.API_URL}/Account/logout`, {});
   }
 
   registration(body: object): Observable<any> {
-    return this.http.post(`${this.API_URL}/users`, body, {});
+    return this.http.post(`${this.API_URL}/Account/register`, body, {});
   }
 
   confirmRegistration(body: object): Observable<any> {
-    return this.http.post(`${this.API_URL}/users/confirm`, body, {});
+    return this.http.get(`${this.API_URL}/Account/confirm-email`, {});
   }
 
-  getProfile(): Observable<any> {
-    return this.http.get(`${this.API_URL}/users/me`,  {});
+  forgotPassword(body: object): Observable<any> {
+    return this.http.post(`${this.API_URL}/Account/forgot-passowrd`, body, {});
+  }
+
+  resetPassword(body: object): Observable<any> {
+    return this.http.post(`${this.API_URL}/Account/reset-passowrd`, body, {});
+  }
+
+  refreshtoken(body: object): Observable<any> {
+    return this.http.post(`${this.API_URL}/Account/refreshtoken`, body, {});
   }
 }

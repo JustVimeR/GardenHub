@@ -1,1 +1,65 @@
-<p>main-page works!</p>
+<app-profile-warning></app-profile-warning>
+<section class="main_wrapper">
+    <div class="container">
+        <h1 class="main_header">GARDENHUB</h1>
+        <h2 class="main_subheader">Онлайн-сервіс замовлення послуг у сфері садівництва 
+            по всій Україні
+        </h2>
+    </div>
+</section>
+
+<section class="top-worker_wrapper">
+    <div class="container">
+       <div class="worker_header">
+        <img src="../../../assets/workerlogo.png" alt="1" class="worker_img">
+        <div class="worker_text">ТОП-садівники</div>
+       </div>
+    <div class="top-worker_slider_wrapper" >
+       <div class="top-worker-slider" *ngFor="let data of fakeData">
+            <img src={{data.workerPhoto}} alt="photo" class="worker_photo">
+            <div class="worker_username">{{data.username}}</div>
+            <div class="worker_raiting">
+                {{data.raiting}}
+              <img src="../../../assets/star.png" alt="star" class="star">  
+            </div>
+       </div> 
+    </div>
+    </div>
+</section>
+
+<section class="order_wrapper">
+    <div class="container">
+       <div class="order_header">
+        <img src="../../../assets/orderlogo.png" alt="2" class="order_img">
+        <div class="order_text">Усі замовлення</div>
+       </div>
+    <div class="list_wrapper">
+        <div class="order_list_wrapper" *ngFor="let order of fakeOrders">
+            <div class="order" >
+                <div class="order_title">{{order.title}}</div>
+                <div class="order_subtitle"><img src="../../../assets/point.png" alt="point" class="order_point"><span>{{order.location}}</span></div>
+                <div class="order_price"><img src="../../../assets/moneygrn.png" alt="point" class="order_point"> <span>{{order.price}}</span></div>
+                <div class="type-of-work_list" >
+                    <div class="type-of-work" *ngFor="let type of order.typeOfWork">{{type}}</div>
+                </div>
+                <div class="order_footer">
+                    <button class="details_btn">Детальніше</button>
+                    <img src="../../../assets/hearticon.png" 
+                        alt="heart" 
+                        class="heart_btn" 
+                        (click)="toggleHeart(order)" 
+                        *ngIf="!order.isHeartClicked">
+
+                    <img src="../../../assets/hearticonred.png" 
+                        alt="heart" 
+                        class="heart_btn" 
+                        (click)="toggleHeart(order)" 
+                        *ngIf="order.isHeartClicked">
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="load-more">Загрузити ще</button>
+</div>
+</section>
+
