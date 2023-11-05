@@ -6,13 +6,15 @@ import { RegistrationComponent } from './registration/registration.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SharedModule} from "../../shared.module";
 import { RestorePasswordComponent } from './restore-password/restore-password.component';
+import { NewPasswordComponent } from './new-password/new-password.component';
 
 @NgModule({
   declarations: [
     AuthComponent,
     LoginComponent,
     RegistrationComponent,
-    RestorePasswordComponent
+    RestorePasswordComponent,
+    NewPasswordComponent
   ],
     imports: [
         CommonModule,
