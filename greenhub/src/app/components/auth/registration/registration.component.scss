@@ -31,6 +31,10 @@
         font-weight: 400;
         text-align: center;
     }
+    .form-group {
+    width: 100%;
+}
+
     .form-control{
         display: block;
         margin: 15px auto;
@@ -98,7 +102,7 @@
     }
     .agree-check{
         display: block;
-        margin-top: 46px;
+        margin-top: 20px;
         margin-left: 115px;
         color: rgba(83, 83, 83, 0.78);
         font-size: 18px;
@@ -170,3 +174,9 @@
     }
     
 }
+
+.login-add-button a {
+    color: #000; /* Set the color to black */
+    text-decoration: none; /* Remove the underline */
+  }
+  
