@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile-warning',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class ProfileWarningComponent {
 
+  constructor(private router: Router){
+    
+  }
+
+  goToProfile(): void {
+    this.router.navigate(['/api/profilesettings']);
+  }
 }

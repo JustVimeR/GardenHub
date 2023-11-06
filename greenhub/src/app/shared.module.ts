@@ -40,7 +40,7 @@ import { ProfileWarningComponent } from "./components/general/profile-warning/pr
       NgClass,
       MatAutocompleteModule,
       MatIconModule,
-      AsyncPipe,
+      AsyncPipe
     ],
     providers: [DatePipe]
   })

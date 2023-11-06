@@ -103,7 +103,58 @@
                   Телефон є обов'язковим для заповнення
                 </div>
               </div>
-              
+
+              <div class="form-group">
+                <div class="input_header">Дата народження:</div>
+                <mat-form-field appearance="fill">
+                  <mat-label>Виберіть дату</mat-label>
+                  <input matInput [matDatepicker]="picker" class="datepicker-input">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+              </div>
+
+              <div class="form-group">
+             <div class="input_header">Міста обслуговування:</div>
+              <mat-form-field class="example-chip-list">
+                <mat-label>Міста обслуговування</mat-label>
+                <mat-chip-grid #chipGrid aria-label="Вибір міста">
+                  <mat-chip-row *ngFor="let city of cities" (removed)="removeCity(city)">
+                    {{city}}
+                    <button matChipRemove [attr.aria-label]="'remove ' + city">
+                      <mat-icon>cancel</mat-icon>
+                    </button>
+                  </mat-chip-row>
+                </mat-chip-grid>
+                <input placeholder="Додати місто..." #fruitInput [formControl]="cityCtrl"
+                  [matChipInputFor]="chipGrid" [matAutocomplete]="auto"
+                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                  (matChipInputTokenEnd)="addCity($event)"/>
+                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectedCity($event)">
+                  <mat-option *ngFor="let city of filteredCities | async" [value]="city">
+                    {{city}}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+                </div>
+              <hr/>
+
+              <div class="form-group">
+                <div class="input_header">Про себе:</div>
+                <textarea 
+                  id="comment" 
+                  rows="4" 
+                  class="form-control" 
+                  placeholder="Введіть ваш коментар тут..." 
+                  style="width: 819px; height: 412px;  resize: none;" 
+                  formControlName="commentText">
+                </textarea>
+                <div
+                  class=" invalid-feedback d-block"
+                  *ngIf="user.get('commentText')?.hasError('required') && user.get('commentText')?.touched">
+                  Коментар не може бути порожнім
+                </div>
+              </div>
             <button type="submit" class="btn-comfirm" >Зберегти зміни</button>
           </form>
         </div>

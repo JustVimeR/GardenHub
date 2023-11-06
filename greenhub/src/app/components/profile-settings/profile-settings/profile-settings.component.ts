@@ -1,7 +1,10 @@
+
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import StorageService from 'src/app/services/storage.service';
 import { Page } from '../models/page';
+import { animate, style, transition, trigger } from '@angular/animations';
+
 
 @Component({
   selector: 'app-profile-settings',

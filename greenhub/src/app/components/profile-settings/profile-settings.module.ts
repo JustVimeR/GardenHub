@@ -6,6 +6,11 @@ import { ProfileSettingsComponent } from './profile-settings/profile-settings.co
 import { MainInfoComponent } from './main-info/main-info.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ServiceTypeComponent } from './service-type/service-type.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatTabsModule} from '@angular/material/tabs';
 
 const profileSettingsRoutes = [
   {path: '', component: ProfileSettingsComponent}
@@ -21,7 +26,12 @@ const profileSettingsRoutes = [
     imports: [
         CommonModule,
         RouterModule.forChild(profileSettingsRoutes),
-        SharedModule
+        SharedModule, 
+        MatDatepickerModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatNativeDateModule,
+        MatTabsModule
     ]
 })
 export class ProfileSettingsModule { }

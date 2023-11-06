@@ -1,19 +1,23 @@
 .main-page_wrapper{
     margin-top: 70px;
-    height: 1700px;
+    height: 2000px;
 }
 
 .main-page_info_wrapper{
     display: flex;
     justify-content: space-around;
-    align-items:center;
+    align-items: flex-start;
+}
+
+.invalid-feedback {
+    margin-top: -0.75rem;
 }
 
 .user-photo_wrapper{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items:center;
     .user-photo{
         width: 208px;
         height: 208px;
@@ -63,9 +67,9 @@
 }
 .btn-comfirm{
     margin-top: 111px;
-    display: inline-flex;
+    display: flex;
     padding: 20px;
-    justify-content: center;
+    justify-content:center;
     align-items: center;
     gap: 10px;
     border-radius: 18px;
@@ -76,3 +80,13 @@
     font-size: 25px;
     font-weight: 600;
 }
+
+.example-chip-list {
+    width: 100%;
+}
+
+
+
+
+  
+  
