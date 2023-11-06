@@ -33,9 +33,8 @@ export class NewPasswordComponent {
 
   onSubmit() {
     if (this.password.valid) {
-      const newPassword = this.password.get('new_password')!.value;
-      const repeatPassword = this.password.get('repeat_password')!.value;
-
+      this.password.get('new_password')!.value;
+      this.password.get('repeat_password')!.value;
     }
   }
 }
