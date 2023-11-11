@@ -1,3 +1,39 @@
-<div class="container">
-    <div class="box"></div>
+<div class="main-page_wrapper">
+    <div class="container">
+        <div class="add_project_wrapper">
+            <button class="btn-add-project">Додати проект</button>
+        </div>
+        <section class="order_wrapper">
+            <div class="list_wrapper">
+                <div class="order_list_wrapper" *ngFor="let order of fakeOrders">
+                    <div class="order" >
+                        <div class="order_title">{{order.title}}</div>
+                        <div class="order_subtitle"><img src="../../../assets/point.png" alt="point" class="order_point"><span>{{order.location}}</span></div>
+                        <div class="order_price"><img src="../../../assets/moneygrn.png" alt="point" class="order_point"> <span>{{order.price}}</span></div>
+                        <div class="type-of-work_list" >
+                            <div class="type-of-work" *ngFor="let type of order.typeOfWork">{{type}}</div>
+                        </div>
+                        <div class="order_footer">
+                            <button class="details_btn">Детальніше</button>
+                            <img src="../../../assets/hearticon.png" 
+                                alt="heart" 
+                                class="heart_btn" 
+                                (click)="toggleHeart(order)" 
+                                *ngIf="!order.isHeartClicked">
+        
+                            <img src="../../../assets/hearticonred.png" 
+                                alt="heart" 
+                                class="heart_btn" 
+                                (click)="toggleHeart(order)" 
+                                *ngIf="order.isHeartClicked">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="confirmation_buttons_wrapper">
+            <button class="btn-confirm" >Переглянути зміни</button>
+            <button type="submit" class="btn-confirm" >Зберегти зміни</button>
+        </div>
+    </div>
 </div>
