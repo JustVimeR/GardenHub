@@ -6,11 +6,13 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatIconModule } from "@angular/material/icon";
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { ProfileWarningComponent } from "./components/general/profile-warning/profile-warning.component";
+import { OrderComponent } from "./components/general/order/order.component";
 
 @NgModule({
     declarations: [
       // COMPONENTS
-      ProfileWarningComponent
+      ProfileWarningComponent,
+      OrderComponent
       // DIRECTIVES
     
       // PIPES
@@ -19,6 +21,7 @@ import { ProfileWarningComponent } from "./components/general/profile-warning/pr
     exports: [
       // COMPONENTS
       ProfileWarningComponent,
+      OrderComponent,
       // DIRECTIVES
   
       // PIPES
@@ -42,7 +45,7 @@ import { ProfileWarningComponent } from "./components/general/profile-warning/pr
       MatIconModule,
       AsyncPipe
     ],
-    providers: [DatePipe]
+    providers: [DatePipe],
   })
   export class SharedModule {
   }

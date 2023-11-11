@@ -1,0 +1,19 @@
+<div class="container">
+    <h2 class="header">Мої замовлення</h2>
+    <nav>
+        <ul>
+            <li [class.active]="activePage === Page.inWork" (click)="changePage(Page.inWork)">
+                У роботі
+            </li>
+            <li [class.active]="activePage === Page.complited" (click)="changePage(Page.complited)">
+                Виконані
+            </li>
+        </ul>
+    </nav>
+
+    
+
+    <app-orders-in-work *ngIf="activePage === Page.inWork"></app-orders-in-work>
+    <app-orders-complited *ngIf="activePage === Page.complited"></app-orders-complited>
+    
+</div>

@@ -34,30 +34,11 @@
         <div class="order_text">Усі замовлення</div>
        </div>
     <div class="list_wrapper">
-        <div class="order_list_wrapper" *ngFor="let order of fakeOrders">
-            <div class="order" >
-                <div class="order_title">{{order.title}}</div>
-                <div class="order_subtitle"><img src="../../../assets/point.png" alt="point" class="order_point"><span>{{order.location}}</span></div>
-                <div class="order_price"><img src="../../../assets/moneygrn.png" alt="point" class="order_point"> <span>{{order.price}}</span></div>
-                <div class="type-of-work_list" >
-                    <div class="type-of-work" *ngFor="let type of order.typeOfWork">{{type}}</div>
-                </div>
-                <div class="order_footer">
-                    <button class="details_btn">Детальніше</button>
-                    <img src="../../../assets/hearticon.png" 
-                        alt="heart" 
-                        class="heart_btn" 
-                        (click)="toggleHeart(order)" 
-                        *ngIf="!order.isHeartClicked">
-
-                    <img src="../../../assets/hearticonred.png" 
-                        alt="heart" 
-                        class="heart_btn" 
-                        (click)="toggleHeart(order)" 
-                        *ngIf="order.isHeartClicked">
-                </div>
-            </div>
-        </div>
+        <app-order 
+            *ngFor="let order of fakeOrders" 
+            [order]="order"
+            (heartToggle)="toggleHeart($event)"
+        ></app-order>
     </div>
     <button class="load-more">Загрузити ще</button>
 </div>

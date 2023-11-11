@@ -5,7 +5,7 @@ export enum Path {
     profileSettings = 'profilesettings',
     profile = 'profile',
     searchOrder = 'searchorder',
-    myOrders = 'myorders',
+    orders = 'orders',
     chats = 'chats'
   }
   

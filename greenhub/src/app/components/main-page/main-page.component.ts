@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { OrderStatus } from 'src/app/models/enums/order-status';
 
 @Component({
   selector: 'app-main-page',
@@ -9,7 +10,7 @@ export class MainPageComponent {
 
   toggleHeart(order: any) {
     order.isHeartClicked = !order.isHeartClicked;
-}
+  }
 
   fakeData: any = [
     {
@@ -57,7 +58,8 @@ export class MainPageComponent {
       isHeartClicked: false,
       typeOfWork: [
        'Догляд за газоном','Догляд за фруктовими деревами','Ландшафтний дизайн'
-      ]
+      ],
+      orderStatus: OrderStatus.active
     },
     {
       title: 'Обрізка фруктових дерев у саду',
@@ -66,7 +68,8 @@ export class MainPageComponent {
       isHeartClicked: false,
       typeOfWork: [
        'Догляд за фруктовими деревами','Ландшафтний дизайн','Догляд за газоном','Догляд за газоном'
-      ]
+      ],
+      orderStatus: OrderStatus.active
     },
     {
       title: 'Діагностика та лікування троянд',
@@ -75,7 +78,8 @@ export class MainPageComponent {
       isHeartClicked: false,
       typeOfWork: [
        'Догляд за рослинами','Діагностика та лікування захворювань','Догляд за газоном'
-      ]
+      ],
+      orderStatus: OrderStatus.active
     },
     {
       title: 'Покосити газон на прибудинковій території',
@@ -84,7 +88,8 @@ export class MainPageComponent {
       isHeartClicked: false,
       typeOfWork: [
        'Догляд за газоном','Догляд за газоном','Догляд за газоном'
-      ]
+      ],
+      orderStatus: OrderStatus.active
     }
   ]
 }

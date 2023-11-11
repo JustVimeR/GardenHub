@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
@@ -10,6 +10,7 @@ import {SharedModule} from "./shared.module";
 import {MAT_DATE_LOCALE} from "@angular/material/core";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthModule } from './components/auth/auth.module';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [
@@ -25,12 +26,14 @@ import { AuthModule } from './components/auth/auth.module';
     ReactiveFormsModule,
     ToastrModule.forRoot(),
     SharedModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    IonicModule
   ],
   providers: [
     provideAnimations(),
     provideToastr(),
     {provide: MAT_DATE_LOCALE, useValue: 'uk'},],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
