@@ -6,16 +6,20 @@ import { OrdersComponent } from './orders/orders.component';
 import { OrdersComplitedComponent } from './orders-complited/orders-complited.component';
 import { OrdersInWorkComponent } from './orders-in-work/orders-in-work.component';
 import { RouterModule } from '@angular/router';
+import { OrderDetailsComponent } from './order-details/order-details.component';
 
 const OrdersRoutes = [
-  {path: '', component: OrdersComponent}
+  {path: '', component: OrdersComponent},
+  {path: 'order/:id', component: OrderDetailsComponent},
+  {path: 'order', component: OrderDetailsComponent}
 ]
 
 @NgModule({
   declarations: [
     OrdersComponent,
     OrdersComplitedComponent,
-    OrdersInWorkComponent
+    OrdersInWorkComponent,
+    OrderDetailsComponent
   ],
   imports: [
     CommonModule,

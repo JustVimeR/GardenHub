@@ -9,7 +9,7 @@
         <div class="type-of-work" *ngFor="let type of order.typeOfWork">{{type}}</div>
     </div>
     <div class="order_footer">
-        <button class="details_btn">Детальніше</button>
+        <button class="details_btn" (click)="viewOrderDetails()">Детальніше</button>
         <img src="../../../assets/hearticon.png" 
             alt="heart" 
             class="heart_btn" 
