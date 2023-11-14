@@ -6,11 +6,13 @@
         
         <form class="form-wrapper" (ngSubmit)="registration(user)" [formGroup]="user">
             <div class="form-group input-with-icon">
+              <div class="input-container-2">
                 <input type="text"
                        class="form-control"
                        placeholder="*Введи і'мя"
                        formControlName="firstName"
                 >
+              </div>
                 <div class="icon-container" 
                 *ngIf="(user.get('firstName')?.hasError('minlength') || user.get('firstName')?.hasError('required')) && user.get('firstName')?.touched">
                <svg class="info-icon" viewBox="0 0 24 24" width="25" height="25">
@@ -22,11 +24,13 @@
            </div>
               </div>
               <div class="form-group input-with-icon">
+                <div class="input-container-2">
                 <input type="text"
                        class="form-control"
                        placeholder="*Введи прізвище"
                        formControlName="lastName"
                 >
+                </div>
                 <div class="icon-container" 
                 *ngIf="(user.get('lastName')?.hasError('minlength') || user.get('lastName')?.hasError('required')) && user.get('lastName')?.touched">
                 <svg class="info-icon" viewBox="0 0 24 24" width="25" height="25">
@@ -38,12 +42,14 @@
                 </div>
               </div>
             <div class="form-group input-with-icon">
+              <div class="input-container-2">
               <input type="email"
                      class="form-control"
                      placeholder="*Введи email"
                      formControlName="email"
                      emailMask
               >
+              </div>
               <div class="icon-container" 
                 *ngIf="(user.get('email')?.hasError('minlength') || user.get('email')?.hasError('required')) && user.get('email')?.touched">
                   <svg class="info-icon" viewBox="0 0 24 24" width="25" height="25">
@@ -56,11 +62,13 @@
             </div>
 
             <div class="form-group input-with-icon">
+              <div class="input-container-2">
               <input type="text"
                      class="form-control"
                      placeholder="*username"
                      formControlName="userName"
               >
+              </div>
               <div class="icon-container" 
               *ngIf="user.get('userName')?.hasError('minlength') || user.get('userName')?.hasError('required')" 
               [title]="getUserNameErrorMessage()">
@@ -74,11 +82,13 @@
             </div>
 
             <div class="form-group input-with-icon">
+              <div class="input-container-2">
               <input type="password"
                 formControlName="password"
                 class="form-control"
                 placeholder="*Придумай пароль"
                 (ngModelChange)="updateConfirmPassword($event)">
+                </div>
                 <div class="icon-container" 
                 *ngIf="(user.get('password')?.hasError('pattern') || user.get('password')?.hasError('minlength') || user.get('password')?.hasError('required')) && user.get('password')?.touched">
                     <svg class="info-icon" viewBox="0 0 24 24" width="25" height="25">

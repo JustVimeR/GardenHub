@@ -143,7 +143,12 @@
 
     .form-control {
         flex-grow: 1;
+        box-sizing: border-box;
         margin-right: 10px;
+    }
+
+    .input-container-2 {
+        margin-right: 3%;
     }
 
     .icon-container {
@@ -153,7 +158,7 @@
 
     .icon-container {
         position: relative;
-    
+        right: 0;
         &:hover .tooltip-text {
             display: block;
         }

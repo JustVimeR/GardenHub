@@ -6,6 +6,8 @@
             <button class="user-photo-change_btn">
                 Змінити
             </button>
+            <button class="btn-confirm" >Переглянути профіль</button>
+
         </div>
         <form class="form-wrapper" (ngSubmit)="userProfile(user)" [formGroup]="user">
             <div class="form-group">
@@ -155,7 +157,7 @@
                   Коментар не може бути порожнім
                 </div>
               </div>
-            <button type="submit" class="btn-comfirm" >Зберегти зміни</button>
+            <button type="submit" class="btn-confirm" >Зберегти зміни</button>
           </form>
         </div>
     </div>
