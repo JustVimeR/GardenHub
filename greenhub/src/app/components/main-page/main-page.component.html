@@ -27,7 +27,7 @@
     </div>
 </section>
 
-<section class="order_wrapper">
+<section class="order_wrapper" *ngIf="activeRole === 'gardener'">
     <div class="container">
        <div class="order_header">
         <img src="../../../assets/orderlogo.png" alt="2" class="order_img">
@@ -42,5 +42,33 @@
     </div>
     <button class="load-more">Загрузити ще</button>
 </div>
+</section>
+
+<section class="how-work_wrapper" *ngIf="activeRole === 'housekeeper'">
+    <div class="container">
+        <div class="header">
+            Як працює GARDENHUB
+        </div>
+        <div class="steper_wrapper">
+            <div class="step">
+                <img src="../../../assets/steper/orderpic.png" alt="order-menu" class="step-order">
+                <button class="create_order">Створіть замовлення</button>
+            </div>
+            <div class="step-arrow">
+                <img src="../../../assets/steper/arrow.png" alt="arrow" class="arrow">
+            </div>
+            <div class="step step-worker-wrap">
+                <img src="../../../assets/steper/workerpic.png" alt="step-worker" class="step-worker">
+                <div class="step_descr">Оберіть садівника серед бажаючих</div>
+            </div>
+            <div class="step-arrow">
+                <img src="../../../assets/steper/arrow.png" alt="arrow" class="arrow">
+            </div>
+            <div class="step step-hand">
+                <img src="../../../assets/steper/handpic.png" alt="step-final" class="step-final">
+                <div class="step_descr">Закрийте замовлення та залиште відгук</div>
+            </div>
+        </div>
+    </div>
 </section>
 

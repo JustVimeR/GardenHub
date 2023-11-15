@@ -1,16 +1,26 @@
-import { Component, HostListener} from '@angular/core';
+import { Component, HostListener, OnInit} from '@angular/core';
 import {ModalService} from "../../services/modal.service";
 import {AuthService} from "../../services/auth.service";
+import { RoleService } from 'src/app/services/role.service';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent {
+export class MainComponent implements OnInit{
   show$ = this.modalService.showModal;
   statusMenu = false;
   showProfileMenu = false;
+  activeTab: 'gardener' | 'housekeeper' = 'housekeeper';
+  activeRole: 'gardener' | 'housekeeper';
+  
+  ngOnInit() {
+    this.roleService.activeRole.subscribe(role => {
+      this.activeRole = role;
+    });
+  }
+
   @HostListener('click', ['$event'])
   trackClick(event: any): void {
     if (event.target?.classList.contains('sidebar-nav-link')) {
@@ -45,8 +55,10 @@ export class MainComponent {
 
   constructor(
     private modalService: ModalService,
-    private authService: AuthService
+    private authService: AuthService,
+    private roleService: RoleService
   ) {
+    this.activeRole = 'gardener';
   }
 
   removeClassforAllNav(): void {
@@ -61,9 +73,8 @@ export class MainComponent {
     this.statusMenu = !this.statusMenu;
   }
 
-  activeTab: 'gardener' | 'housekeeper' = 'gardener';
-
   setActiveTab(tab: 'gardener' | 'housekeeper') {
     this.activeTab = tab;
+    this.roleService.setActiveRole(tab);
   }
 }

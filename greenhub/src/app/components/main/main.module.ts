@@ -33,6 +33,16 @@ const mainRoutes: Routes = [
           loadChildren: () => import('../my-profile/my-profile.module').then(m => m.MyProfileModule),
           canActivate: [StopRouteGuard]
         },
+        {
+          path: Path.notification,
+          loadChildren: () => import('../notifications/notifications.module').then(m => m.NotificationsModule),
+          canActivate: [StopRouteGuard]
+        },
+        {
+          path: Path.createOrder,
+          loadChildren: () => import('../create-order/create-order.module').then(m => m.CreateOrderModule),
+          canActivate: [StopRouteGuard]
+        },
         {path: Path.error, component: ErrorPageComponent},
         {path: '**', redirectTo: Path.mainPage}
       ]

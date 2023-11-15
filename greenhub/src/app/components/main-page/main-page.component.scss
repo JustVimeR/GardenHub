@@ -119,3 +119,66 @@
     font-size: 25px;
     font-weight: 600;
 }
+
+.how-work_wrapper{
+    margin-top: 63px;
+  .container{
+    .header{
+        margin-top: 63px;
+        color: #000;
+        font-size: 30px;
+        font-weight: 500;
+        text-align: center;
+        width: auto;
+        margin: 0 auto;
+    }
+
+    .steper_wrapper{
+        margin: 38px 0 111px 100px;
+        display: inline-flex;
+        align-items: center;
+        gap: 66px;
+
+        .step{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items:center;
+
+            .create_order{
+                margin-top: 15px;
+                display: flex;
+                width: 230px;
+                height: 47px;
+                padding: 21px 20px;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                flex-shrink: 0;
+                border-radius: 18px;
+                border: 3px solid #000;
+                background-color:#FFF;
+                color: #000;
+                font-size: 18px;
+                font-weight: 600;
+            }
+
+            .step_descr{
+                margin-top: 15px;
+                color: #000;
+                text-align: center;
+                font-size: 23px;
+                font-weight: 400;
+            }
+        }
+
+        .step-hand{
+            width: 276px;
+        }
+
+        .step-worker-wrap{
+            width: 300px;
+        }
+    }
+  }
+}

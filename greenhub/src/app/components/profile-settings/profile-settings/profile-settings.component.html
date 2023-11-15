@@ -1,6 +1,6 @@
 <div class="container">
     <h2 class="header">Налаштування профілю</h2>
-    <nav>
+    <nav *ngIf="activeRole === 'gardener'">
         <ul>
             <li [class.active]="activePage === Page.mainInfo" (click)="changePage(Page.mainInfo)">
                 Основна інформація

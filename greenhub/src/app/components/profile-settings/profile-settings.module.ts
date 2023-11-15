@@ -11,6 +11,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatTabsModule} from '@angular/material/tabs';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTreeModule } from '@angular/material/tree';
 
 const profileSettingsRoutes = [
   {path: '', component: ProfileSettingsComponent}
@@ -31,7 +34,10 @@ const profileSettingsRoutes = [
         MatFormFieldModule,
         MatInputModule,
         MatNativeDateModule,
-        MatTabsModule
+        MatTabsModule,
+        MatTreeModule,
+        MatButtonModule,
+        MatIconModule,
     ]
 })
 export class ProfileSettingsModule { }

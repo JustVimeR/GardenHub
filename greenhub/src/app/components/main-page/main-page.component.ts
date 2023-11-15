@@ -1,12 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { OrderStatus } from 'src/app/models/enums/order-status';
+import { RoleService } from 'src/app/services/role.service';
 
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss']
 })
-export class MainPageComponent {
+export class MainPageComponent implements OnInit{
+
+  activeRole: 'gardener' | 'housekeeper';
+
+  constructor(private roleService: RoleService) {
+    this.activeRole = 'gardener';
+  }
+
+  ngOnInit() {
+    this.roleService.activeRole.subscribe(role => {
+      this.activeRole = role;
+    });
+  }
 
   toggleHeart(order: any) {
     order.isHeartClicked = !order.isHeartClicked;
@@ -93,3 +106,4 @@ export class MainPageComponent {
     }
   ]
 }
+
