@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { OrderStatus } from 'src/app/models/enums/order-status';
 import { RoleService } from 'src/app/services/role.service';
 
@@ -11,7 +12,9 @@ export class MainPageComponent implements OnInit{
 
   activeRole: 'gardener' | 'housekeeper';
 
-  constructor(private roleService: RoleService) {
+  constructor(
+    private roleService: RoleService,
+    private router: Router) {
     this.activeRole = 'gardener';
   }
 
@@ -19,6 +22,10 @@ export class MainPageComponent implements OnInit{
     this.roleService.activeRole.subscribe(role => {
       this.activeRole = role;
     });
+  }
+
+  goToCreateOrder(){
+    this.router.navigate(['/api/create-order']);
   }
 
   toggleHeart(order: any) {
