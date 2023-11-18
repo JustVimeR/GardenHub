@@ -2,6 +2,7 @@ import { FlatTreeControl } from '@angular/cdk/tree';
 import { Component } from '@angular/core';
 import { MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
 import { Router } from '@angular/router';
+import { RoleService } from 'src/app/services/role.service';
 
 
 interface ServiceNode {
@@ -93,6 +94,8 @@ export class CreateProjectComponent {
   typeOfWork: any = [
     'Обрізання дерев', 'Стрижка кущів', 'Кронування дерев'
   ]
+
+  activeRole: 'gardener' | 'housekeeper';
   selectedFilesCount = 0;
   private _transformer = (node: ServiceNode, level: number) => {
     return {
@@ -116,8 +119,17 @@ export class CreateProjectComponent {
 
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private roleService: RoleService) {
     this.dataSource.data = TREE_DATA;
+    this.activeRole = 'gardener';
+  }
+
+  ngOnInit() {
+    this.roleService.activeRole.subscribe(role => {
+      this.activeRole = role;
+    });
   }
 
   hasChild = (_: number, node: ExampleFlatNode) => node.expandable;

@@ -2,6 +2,46 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { OrderStatus } from 'src/app/models/enums/order-status';
 import { RoleService } from 'src/app/services/role.service';
+import { MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
+import { FlatTreeControl } from '@angular/cdk/tree';
+import { Order } from 'src/app/models/order';
+
+interface ServiceNode {
+  name: string;
+  selected?: boolean;
+  children?: ServiceNode[];
+}
+
+const TREE_DATA: ServiceNode[] = [
+  {
+    name: 'За категорією',
+    children: [
+      {name: 'Стрижка та обрізка', selected: false}, 
+      {name: 'Догляд за газоном', selected: false}, 
+      {name: 'Захист від захворювань та шкідників', selected: false},
+      {name: 'Підготовка до зими', selected: false},
+      {name: 'Створення нових насаджень', selected: false}, 
+      {name: 'Планування та дизайн саду', selected: false}, 
+      {name: 'Догляд за водними об’єктами', selected: false},
+      {name: 'Ландшафтна архітектура', selected: false}
+    ],
+  },
+  {
+    name: 'За локацією',
+    children: [
+      {name: 'Київ', selected: false}, 
+      {name: "Харків", selected: false}, 
+      {name: 'Львів', selected: false},
+      {name: 'Житомир', selected: false}
+    ],
+  }
+];
+
+interface ExampleFlatNode {
+  expandable: boolean;
+  name: string;
+  level: number;
+}
 
 @Component({
   selector: 'app-main-page',
@@ -9,19 +49,85 @@ import { RoleService } from 'src/app/services/role.service';
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit{
+  
+  isFilterOpen: boolean = false;
 
   activeRole: 'gardener' | 'housekeeper';
+  private _transformer = (node: ServiceNode, level: number) => {
+    return {
+      expandable: !!node.children && node.children.length > 0,
+      name: node.name,
+      level: level,
+    };
+  };
 
+  treeControl = new FlatTreeControl<ExampleFlatNode>(
+    node => node.level,
+    node => node.expandable,
+  );
+
+  treeFlattener = new MatTreeFlattener(
+    this._transformer,
+    node => node.level,
+    node => node.expandable,
+    node => node.children,
+  );
+
+  dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
   constructor(
     private roleService: RoleService,
     private router: Router) {
     this.activeRole = 'gardener';
+    this.dataSource.data = TREE_DATA;
   }
 
   ngOnInit() {
     this.roleService.activeRole.subscribe(role => {
       this.activeRole = role;
     });
+
+  }
+
+  getFilteredOrders() {
+    const selectedCategories = this.getSelectedCategories();
+    const selectedLocations = this.getSelectedLocations();
+  
+    return this.fakeOrders.filter((order: Order) => {
+      const matchesCategory = selectedCategories.length === 0 || order.typeOfWork.some((work: string) => selectedCategories.includes(work));
+      const matchesLocation = selectedLocations.length === 0 || selectedLocations.includes(order.location);
+      return matchesCategory && matchesLocation;
+    });
+  }
+
+  getSelectedLocations(): string[] {
+    const selectedLocations: string[] = [];
+    const locationNode = TREE_DATA.find(node => node.name === 'За локацією');
+    if (locationNode && locationNode.children) {
+      locationNode.children.forEach(child => {
+        if (child.selected) {
+          selectedLocations.push(child.name);
+        }
+      });
+    }
+    return selectedLocations;
+  }
+
+  getSelectedCategories(): string[] {
+    const selectedCategories: string[] = [];
+    TREE_DATA.forEach(node => {
+      if (node.children) {
+        node.children.forEach(child => {
+          if (child.selected) {
+            selectedCategories.push(child.name);
+          }
+        });
+      }
+    });
+    return selectedCategories;
+  }
+
+  toggleFilter() {
+    this.isFilterOpen = !this.isFilterOpen;
   }
 
   goToCreateOrder(){
@@ -31,6 +137,8 @@ export class MainPageComponent implements OnInit{
   toggleHeart(order: any) {
     order.isHeartClicked = !order.isHeartClicked;
   }
+
+  hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
 
   fakeData: any = [
     {
@@ -50,7 +158,7 @@ export class MainPageComponent implements OnInit{
     },
     {
       workerPhoto: "../../../assets/photo4.png",
-      username: "olexandr.mukh",
+      username: "vlad.taran",
       raiting: '4.8'
     },
     {
@@ -70,7 +178,7 @@ export class MainPageComponent implements OnInit{
     },
   ];
 
-  fakeOrders:any = [
+  fakeOrders: any = [
     {
       title: 'Покосити газон на прибудинковій території',
       location: 'м. Вишгород, Київська обл.',

@@ -14,9 +14,11 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTreeModule } from '@angular/material/tree';
+import { CreateOrderComponent } from './create-order/create-order.component';
 
 const profileSettingsRoutes = [
-  {path: '', component: ProfileSettingsComponent}
+  {path: '', component: ProfileSettingsComponent},
+  {path: 'create-order', component: CreateOrderComponent}
 ]
 
 @NgModule({
@@ -24,7 +26,8 @@ const profileSettingsRoutes = [
     ProfileSettingsComponent,
     MainInfoComponent,
     PortfolioComponent,
-    ServiceTypeComponent
+    ServiceTypeComponent,
+    CreateOrderComponent
   ],
     imports: [
         CommonModule,

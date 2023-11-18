@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import {RouterModule} from "@angular/router";
 import {SharedModule} from "../../shared.module";
 import { MainPageComponent } from './main-page.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTreeModule } from '@angular/material/tree';
 
 
 const mainPageRoutes = [
@@ -16,7 +18,9 @@ const mainPageRoutes = [
   imports: [
     CommonModule,
     RouterModule.forChild(mainPageRoutes),
-    SharedModule
+    SharedModule,
+    MatTreeModule,
+    MatButtonModule
   ]
 })
 export class MainPageModule { }

@@ -18,6 +18,7 @@ export class MainComponent implements OnInit{
   ngOnInit() {
     this.roleService.activeRole.subscribe(role => {
       this.activeRole = role;
+      this.activeTab = role; 
     });
   }
 
@@ -56,7 +57,7 @@ export class MainComponent implements OnInit{
   constructor(
     private modalService: ModalService,
     private authService: AuthService,
-    private roleService: RoleService
+    private roleService: RoleService,
   ) {
     this.activeRole = 'gardener';
   }

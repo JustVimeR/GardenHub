@@ -7,6 +7,7 @@ import { OrdersComplitedComponent } from './orders-complited/orders-complited.co
 import { OrdersInWorkComponent } from './orders-in-work/orders-in-work.component';
 import { RouterModule } from '@angular/router';
 import { OrderDetailsComponent } from './order-details/order-details.component';
+import { OrdersActiveComponent } from './orders-active/orders-active.component';
 
 const OrdersRoutes = [
   {path: '', component: OrdersComponent},
@@ -19,7 +20,8 @@ const OrdersRoutes = [
     OrdersComponent,
     OrdersComplitedComponent,
     OrdersInWorkComponent,
-    OrderDetailsComponent
+    OrderDetailsComponent,
+    OrdersActiveComponent
   ],
   imports: [
     CommonModule,
