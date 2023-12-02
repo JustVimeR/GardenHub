@@ -3,8 +3,14 @@
         <div class="order_title">{{order.title}}</div>
         <div class="order_status">{{order.orderStatus}}</div>
     </div>
-    <div class="order_subtitle"><img src="../../../assets/point.png" alt="point" class="order_point"><span>{{order.location}}</span></div>
-    <div class="order_price"><img src="../../../assets/moneygrn.png" alt="point" class="order_point"> <span>{{order.price}}</span></div>
+    <div class="order_subtitle">
+        <img src="../../../assets/point.png" alt="point" class="order_point">
+        <span>{{order.location}}</span>
+    </div>
+    <div class="order_price">
+        <img src="../../../assets/moneygrn.png" alt="point" class="order_point">
+        <span>{{order.price}}</span>
+    </div>
     <div class="type-of-work_list" >
         <div class="type-of-work" *ngFor="let type of order.typeOfWork">{{type}}</div>
     </div>

@@ -15,4 +15,8 @@ export class OrderDetailsComponent {
   back() {
     this.router.navigate(['/api/orders']);
   }
+
+  viewAuthor() {
+    this.router.navigateByUrl(`api/orders/gardener-profile`);
+  }
 }

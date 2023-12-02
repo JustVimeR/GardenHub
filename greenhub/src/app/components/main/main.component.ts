@@ -2,6 +2,7 @@ import { Component, HostListener, OnInit} from '@angular/core';
 import {ModalService} from "../../services/modal.service";
 import {AuthService} from "../../services/auth.service";
 import { RoleService } from 'src/app/services/role.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -58,6 +59,7 @@ export class MainComponent implements OnInit{
     private modalService: ModalService,
     private authService: AuthService,
     private roleService: RoleService,
+    private router:Router
   ) {
     this.activeRole = 'gardener';
   }
@@ -77,5 +79,6 @@ export class MainComponent implements OnInit{
   setActiveTab(tab: 'gardener' | 'housekeeper') {
     this.activeTab = tab;
     this.roleService.setActiveRole(tab);
+    this.router.navigate(['/api/main']);
   }
 }

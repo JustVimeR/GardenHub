@@ -1,10 +1,16 @@
-<app-profile-warning></app-profile-warning>
+<app-profile-warning *ngIf="activeRole === 'gardener'"></app-profile-warning>
 <section class="main_wrapper">
     <div class="container">
         <h1 class="main_header">GARDENHUB</h1>
         <h2 class="main_subheader">Онлайн-сервіс замовлення послуг у сфері садівництва 
             по всій Україні
         </h2>
+        <div class="search-order_wrapper">
+            <div class="input-icon-container">
+                <input class="search-order_input" placeholder="Знайти замовлення..."/>
+                <ion-icon class="search-order_icon" name="search-outline"></ion-icon>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -19,7 +25,7 @@
             <img src={{data.workerPhoto}} alt="photo" class="worker_photo">
             <div class="worker_username">{{data.username}}</div>
             <div class="worker_raiting">
-                {{data.raiting}}
+                <div class="raiting">{{data.raiting}}</div>
               <img src="../../../assets/star.png" alt="star" class="star">  
             </div>
        </div> 

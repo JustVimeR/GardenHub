@@ -5,7 +5,7 @@ import {SharedModule} from "../../shared.module";
 import { MainPageComponent } from './main-page.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTreeModule } from '@angular/material/tree';
-
+import { IonicModule } from '@ionic/angular';
 
 const mainPageRoutes = [
   {path: '', component: MainPageComponent}
@@ -20,7 +20,8 @@ const mainPageRoutes = [
     RouterModule.forChild(mainPageRoutes),
     SharedModule,
     MatTreeModule,
-    MatButtonModule
+    MatButtonModule,
+    IonicModule.forRoot()
   ]
 })
 export class MainPageModule { }

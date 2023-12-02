@@ -8,11 +8,14 @@ import { OrdersInWorkComponent } from './orders-in-work/orders-in-work.component
 import { RouterModule } from '@angular/router';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { OrdersActiveComponent } from './orders-active/orders-active.component';
+import { GardenerProfileComponent } from './gardener-profile/gardener-profile.component';
 
 const OrdersRoutes = [
   {path: '', component: OrdersComponent},
   {path: 'order/:id', component: OrderDetailsComponent},
-  {path: 'order', component: OrderDetailsComponent}
+  {path: 'order', component: OrderDetailsComponent},
+  {path: 'gardener-profile/:id', component: GardenerProfileComponent},
+  {path: 'gardener-profile', component: GardenerProfileComponent}
 ]
 
 @NgModule({
@@ -21,7 +24,8 @@ const OrdersRoutes = [
     OrdersComplitedComponent,
     OrdersInWorkComponent,
     OrderDetailsComponent,
-    OrdersActiveComponent
+    OrdersActiveComponent,
+    GardenerProfileComponent
   ],
   imports: [
     CommonModule,

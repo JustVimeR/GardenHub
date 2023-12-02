@@ -20,7 +20,7 @@ export class OrdersActiveComponent {
       typeOfWork: [
        'Догляд за газоном','Догляд за фруктовими деревами','Ландшафтний дизайн'
       ],
-      orderStatus: OrderStatus.complited
+      orderStatus: OrderStatus.active
     },
     {
       title: 'Обрізка фруктових дерев у саду',
@@ -30,7 +30,7 @@ export class OrdersActiveComponent {
       typeOfWork: [
        'Догляд за фруктовими деревами','Ландшафтний дизайн','Догляд за газоном','Догляд за газоном'
       ],
-      orderStatus: OrderStatus.complited
+      orderStatus: OrderStatus.active
     }
   ]
 }
