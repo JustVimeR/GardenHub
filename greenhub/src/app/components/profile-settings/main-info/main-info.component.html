@@ -6,7 +6,6 @@
             <button class="user-photo-change_btn">
                 Змінити
             </button>
-            <button class="btn-confirm" >Переглянути профіль</button>
 
         </div>
         <form class="form-wrapper" (ngSubmit)="userProfile(user)" [formGroup]="user">
@@ -116,7 +115,7 @@
                 </mat-form-field>
               </div>
 
-              <div class="form-group">
+              <div class="form-group" *ngIf="activeRole === 'gardener'">
              <div class="input_header">Міста обслуговування:</div>
               <mat-form-field class="example-chip-list">
                 <mat-label>Міста обслуговування</mat-label>
@@ -139,9 +138,9 @@
                 </mat-autocomplete>
               </mat-form-field>
                 </div>
-              <hr/>
+              <hr *ngIf="activeRole === 'gardener'"/>
 
-              <div class="form-group">
+              <div class="form-group" *ngIf="activeRole === 'gardener'">
                 <div class="input_header">Про себе:</div>
                 <textarea 
                   id="comment" 
@@ -157,7 +156,7 @@
                   Коментар не може бути порожнім
                 </div>
               </div>
-            <button type="submit" class="btn-confirm" >Зберегти зміни</button>
+            <button type="submit" class="btn-comfirm" >Зберегти зміни</button>
           </form>
         </div>
     </div>

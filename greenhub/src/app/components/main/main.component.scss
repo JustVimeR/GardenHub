@@ -112,14 +112,7 @@ ion-icon {
 }
 
 
-.nav-pannel{
-  display: flex;
-  justify-content: space-between;
-  align-items:center;
-  width: 1440px;
-  height: 80px;
-  margin: 0 auto;
-}
+
 
 .nav-pannel-left{
   display: flex;
@@ -128,14 +121,6 @@ ion-icon {
   
 }
 
-.nav-pannel-logo{
-  margin-left: 37px;
-  color: #000;
-  font-family: Lexend Deca;
-  font-size: 32px;
-  font-weight: 600;
-  text-decoration: none;
-}
 
 .switcher {
   display: flex;
@@ -144,37 +129,6 @@ ion-icon {
   padding: 5px;
 }
 
-.switcher-btn {
-  width: 200px;
-  height: 46px;
-  text-align: center;
-  border: none;
-  border-radius: 18px;
-  background-color: transparent;
-  font-size: 27px;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
-  outline: none;
-}
-
-.switcher-btn.active {
-  background: #83DF89;
-  color: #000;
-}
-
-.switcher-btn:not(.active):hover {
-  background-color: #fff;
-  color: #000;
-  font-size: 27px;
-  font-weight: 600;
-}
-
-.switcher-btn:not(.active) {
-  color: #AFAFAF;
-  font-size: 27px;
-  font-weight: 600;
-}
 
 @media (max-width: 1199.98px) {
   .slim-sidebar {
@@ -240,6 +194,7 @@ ion-icon {
     }
 
   }
+  
 }
 
 .footer_wrapper .row {
@@ -258,4 +213,114 @@ ion-icon {
 .footer_wrapper .social-icon:not(:last-of-type),
 .footer_wrapper .social-icon_lust:not(:last-of-type) {
   margin-right: 35px;
+}
+
+@media (min-width: 426px) {
+  .nav-pannel{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    width: 1440px;
+    height: 80px;
+    margin: 0 auto;
+  }
+
+.switcher-btn {
+  width: 200px;
+  height: 46px;
+  text-align: center;
+  border: none;
+  border-radius: 18px;
+  background-color: transparent;
+  font-size: 27px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  outline: none;
+}
+
+.switcher-btn.active {
+  background: #83DF89;
+  color: #000;
+}
+
+.switcher-btn:not(.active):hover {
+  background-color: #fff;
+  color: #000;
+  font-size: 27px;
+  font-weight: 600;
+}
+
+.switcher-btn:not(.active) {
+  color: #AFAFAF;
+  font-size: 27px;
+  font-weight: 600;
+}
+.nav-pannel-logo{
+  margin-left: 37px;
+  color: #000;
+  font-family: Lexend Deca;
+  font-size: 32px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+
+}
+
+@media (max-width: 425px) {
+  .nav-pannel-logo{
+    display: none;
+  }
+  .nav-pannel{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    width: 100%;
+    height: 40px;
+    margin: 0 auto;
+  }
+
+  .switcher-btn {
+    width: 130px;
+    height: 29px;
+    text-align: center;
+    border: none;
+    border-radius: 18px;
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .switcher-btn.active {
+    background: #83DF89;
+    color: #000;
+  }
+
+  .switcher-btn:not(.active):hover {
+    background-color: #fff;
+    color: #000;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+.switcher-btn:not(.active) {
+  color: #AFAFAF;
+  font-size: 14px;
+  font-weight: 600;
+}
+.nav-pannel-logo{
+  margin-left: 37px;
+  color: #000;
+  width: 390px;
+height: 165.266px;
+  font-family: Lexend Deca;
+  font-size: 32px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
 }

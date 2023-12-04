@@ -7,12 +7,16 @@ import { MatIconModule } from "@angular/material/icon";
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { ProfileWarningComponent } from "./components/general/profile-warning/profile-warning.component";
 import { OrderComponent } from "./components/general/order/order.component";
+import { CreateProjectComponent } from "./components/general/create-project/create-project.component";
+import { MatTreeModule } from "@angular/material/tree";
+import { MatButtonModule } from "@angular/material/button";
 
 @NgModule({
     declarations: [
       // COMPONENTS
       ProfileWarningComponent,
-      OrderComponent
+      OrderComponent,
+      CreateProjectComponent
       // DIRECTIVES
     
       // PIPES
@@ -22,6 +26,7 @@ import { OrderComponent } from "./components/general/order/order.component";
       // COMPONENTS
       ProfileWarningComponent,
       OrderComponent,
+      CreateProjectComponent,
       // DIRECTIVES
   
       // PIPES
@@ -43,7 +48,9 @@ import { OrderComponent } from "./components/general/order/order.component";
       NgClass,
       MatAutocompleteModule,
       MatIconModule,
-      AsyncPipe
+      AsyncPipe,
+      MatTreeModule,
+      MatButtonModule
     ],
     providers: [DatePipe],
   })

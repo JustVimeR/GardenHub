@@ -11,9 +11,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatTabsModule} from '@angular/material/tabs';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTreeModule } from '@angular/material/tree';
+import { CreateOrderComponent } from './create-order/create-order.component';
 
 const profileSettingsRoutes = [
-  {path: '', component: ProfileSettingsComponent}
+  {path: '', component: ProfileSettingsComponent},
+  {path: 'create-order', component: CreateOrderComponent}
 ]
 
 @NgModule({
@@ -21,7 +26,8 @@ const profileSettingsRoutes = [
     ProfileSettingsComponent,
     MainInfoComponent,
     PortfolioComponent,
-    ServiceTypeComponent
+    ServiceTypeComponent,
+    CreateOrderComponent
   ],
     imports: [
         CommonModule,
@@ -31,7 +37,10 @@ const profileSettingsRoutes = [
         MatFormFieldModule,
         MatInputModule,
         MatNativeDateModule,
-        MatTabsModule
+        MatTabsModule,
+        MatTreeModule,
+        MatButtonModule,
+        MatIconModule,
     ]
 })
 export class ProfileSettingsModule { }

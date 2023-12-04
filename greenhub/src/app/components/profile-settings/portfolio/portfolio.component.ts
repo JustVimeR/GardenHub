@@ -20,6 +20,10 @@ export class PortfolioComponent {
     this.router.navigateByUrl(`api/orders/order/${orderId}`);
   }
 
+  createOrder() {
+    this.router.navigateByUrl(`api/profilesettings/create-order`);
+  }
+
   fakeOrders:any = [
     {
       id: 1,

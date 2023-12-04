@@ -16,7 +16,6 @@ export class OrdersInWorkComponent {
   }
 
   viewOrderDetails(orderId: number) {
-    
     this.router.navigateByUrl(`api/orders/order/${orderId}`);
   }
 

@@ -6,6 +6,8 @@ export enum Path {
     profile = 'profile',
     searchOrder = 'searchorder',
     orders = 'orders',
-    chats = 'chats'
+    chats = 'chats',
+    createOrder = 'create-order',
+    notification = 'notification'
   }
   
