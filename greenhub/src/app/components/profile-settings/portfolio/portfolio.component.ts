@@ -34,7 +34,7 @@ export class PortfolioComponent {
       typeOfWork: [
        'Догляд за газоном','Догляд за фруктовими деревами','Ландшафтний дизайн'
       ],
-      orderStatus: OrderStatus.work
+      orderStatus: OrderStatus.complited
     },
     {
       id: 2,
@@ -45,7 +45,7 @@ export class PortfolioComponent {
       typeOfWork: [
        'Догляд за фруктовими деревами','Ландшафтний дизайн','Догляд за газоном','Догляд за газоном'
       ],
-      orderStatus: OrderStatus.work
+      orderStatus: OrderStatus.complited
     }
   ]
 }

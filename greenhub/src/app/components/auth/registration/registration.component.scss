@@ -5,9 +5,9 @@
     }
     .login__window{
         margin: 0 auto;
-        padding: 30px 0px ;
-        width: 668px;
-        height: 903px;
+        width: 574px;
+        height: 770px;
+        padding: 1px 0 40px 0;
         flex-shrink: 0;
         border-radius: 60px;
         background: #FFF;
@@ -37,7 +37,7 @@
 
     .form-control{
         display: block;
-        margin: 15px auto;
+        margin: 10px auto;
         width: 434px;
         height: 60px;
         border-radius: 10px;
@@ -68,7 +68,7 @@
         font-size: 20px;
         font-weight: 700;
         text-align: center;
-        margin-top: 64px;
+        margin-top: 41px;
     }
     .role-text{
         margin-top: 45px;

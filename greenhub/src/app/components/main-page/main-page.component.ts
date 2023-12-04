@@ -51,6 +51,9 @@ interface ExampleFlatNode {
 export class MainPageComponent implements OnInit{
   
   isFilterOpen: boolean = false;
+  currentPageIndex = 0;
+  ordersPerPage = 4;
+  visibleOrders: any = [];
 
   activeRole: 'gardener' | 'housekeeper';
   private _transformer = (node: ServiceNode, level: number) => {
@@ -85,7 +88,24 @@ export class MainPageComponent implements OnInit{
     this.roleService.activeRole.subscribe(role => {
       this.activeRole = role;
     });
+    this.loadOrders();
+  }
 
+  canLoadMore(): boolean {
+    return this.visibleOrders.length < this.fakeOrders.length;
+  }
+
+  loadOrders() {
+    const start = this.currentPageIndex * this.ordersPerPage;
+    const end = start + this.ordersPerPage;
+    const newOrders = this.fakeOrders.slice(start, Math.min(end, this.fakeOrders.length));
+    this.visibleOrders = [...this.visibleOrders, ...newOrders];
+  }
+
+  onLoadMore() {
+    this.currentPageIndex += 1;
+    this.ordersPerPage = 4;
+    this.loadOrders();
   }
 
   getFilteredOrders() {
@@ -183,7 +203,7 @@ export class MainPageComponent implements OnInit{
       title: 'Покосити газон на прибудинковій території',
       location: 'м. Вишгород, Київська обл.',
       price: '700',
-      isHeartClicked: false,
+      isHeartClicked: true,
       typeOfWork: [
        'Догляд за газоном','Догляд за фруктовими деревами','Ландшафтний дизайн'
       ],
@@ -211,11 +231,91 @@ export class MainPageComponent implements OnInit{
     },
     {
       title: 'Покосити газон на прибудинковій території',
-      location: 'м. Вишгород, Київська обл.',
+      location: 'м. Львів',
+      price: '700',
+      isHeartClicked: true,
+      typeOfWork: [
+       'Догляд за фруктовими деревами','Діагностика та лікування захворювань','Догляд за рослинами'
+      ],
+      orderStatus: OrderStatus.active
+    },
+    {
+      title: 'Покосити газон на прибудинковій території',
+      location: 'м. Обухів',
       price: '700',
       isHeartClicked: false,
       typeOfWork: [
-       'Догляд за газоном','Догляд за газоном','Догляд за газоном'
+       'Догляд за газоном','Догляд за фруктовими деревами','Діагностика та лікування захворювань'
+      ],
+      orderStatus: OrderStatus.active
+    },
+    {
+      title: 'Покосити газон на прибудинковій території',
+      location: 'м. Івано-Франківськ',
+      price: '700',
+      isHeartClicked: false,
+      typeOfWork: [
+       'Догляд за рослинами','Ландшафтний дизайн','Догляд за газоном'
+      ],
+      orderStatus: OrderStatus.active
+    }, 
+    {
+      title: 'Покосити газон на прибудинковій території',
+      location: 'м. Вишгород, Київська обл.',
+      price: '700',
+      isHeartClicked: true,
+      typeOfWork: [
+       'Догляд за газоном','Догляд за фруктовими деревами','Ландшафтний дизайн'
+      ],
+      orderStatus: OrderStatus.active
+    },
+    {
+      title: 'Обрізка фруктових дерев у саду',
+      location: 'м. Житомир',
+      price: 'Договірна',
+      isHeartClicked: false,
+      typeOfWork: [
+       'Догляд за фруктовими деревами','Ландшафтний дизайн','Догляд за газоном','Догляд за газоном'
+      ],
+      orderStatus: OrderStatus.active
+    },
+    {
+      title: 'Діагностика та лікування троянд',
+      location: 'м. Кривий Ріг',
+      price: '450',
+      isHeartClicked: false,
+      typeOfWork: [
+       'Догляд за рослинами','Діагностика та лікування захворювань','Догляд за газоном'
+      ],
+      orderStatus: OrderStatus.active
+    },
+    {
+      title: 'Покосити газон на прибудинковій території',
+      location: 'м. Львів',
+      price: '700',
+      isHeartClicked: true,
+      typeOfWork: [
+       'Догляд за фруктовими деревами','Діагностика та лікування захворювань','Догляд за рослинами'
+      ],
+      orderStatus: OrderStatus.active
+    },
+    {
+      title: 'Покосити газон на прибудинковій території',
+      location: 'м. Обухів',
+      price: '700',
+      isHeartClicked: false,
+      typeOfWork: [
+       'Догляд за газоном','Догляд за фруктовими деревами','Діагностика та лікування захворювань'
+      ],
+      orderStatus: OrderStatus.active
+    },
+    {
+      title: 'Покосити газон на прибудинковій території',
+      location: 'м. Івано-Франківськ',
+      price: '700',
+      isHeartClicked: false,
+      typeOfWork: [
+       'Догляд за рослинами','Ландшафтний дизайн','Догляд за газоном'
       ],
       orderStatus: OrderStatus.active
     }

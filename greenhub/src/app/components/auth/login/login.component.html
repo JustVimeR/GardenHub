@@ -6,7 +6,7 @@
       <form (ngSubmit)="login(user)" [formGroup]="user">
         <div class="form-group">
           <input type="text"
-                 class="form-control"
+                 class="form-control email"
                  placeholder="Введи електронну адресу"
                  formControlName="email"
                  emailMask
@@ -17,7 +17,7 @@
             Введіть коректний e-mail
           </div>
           <div
-            class=" invalid-feedback d-block"
+            class="invalid-feedback d-block"
             *ngIf="user.get('email')?.hasError('required') && user.get('email')?.touched">
             E-mail є обов'язковим для заповнення
           </div>
@@ -25,15 +25,15 @@
         <div class="form-group mg-b-50">
           <input type="password"
                  formControlName="password"
-                 class="form-control"
+                 class="form-control password"
                  placeholder="Введи пароль">
           <div
-            class=" invalid-feedback d-block"
+            class="invalid-feedback d-block"
             *ngIf="user.get('password')?.hasError('required') && user.get('password')?.touched">
             Пароль є обов'язковим для заповнення
           </div>
           <div
-            class=" invalid-feedback d-block"
+            class="invalid-feedback d-block"
             *ngIf="globalError">
             {{globalError}}
           </div>
