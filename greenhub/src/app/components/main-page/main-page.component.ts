@@ -5,6 +5,10 @@ import { RoleService } from 'src/app/services/role.service';
 import { MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
 import { FlatTreeControl } from '@angular/cdk/tree';
 import { Order } from 'src/app/models/order';
+import { CityService } from 'src/app/services/city.service';
+import StorageService from 'src/app/services/storage.service';
+import { SharedService } from 'src/app/services/shared.service';
+import { StorageKey } from 'src/app/models/enums/storage-key';
 
 interface ServiceNode {
   name: string;
@@ -48,8 +52,8 @@ interface ExampleFlatNode {
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss']
 })
-export class MainPageComponent implements OnInit{
-  
+export class MainPageComponent extends StorageService implements OnInit{
+  citys: any[] = [];
   isFilterOpen: boolean = false;
   currentPageIndex = 0;
   ordersPerPage = 4;
@@ -78,8 +82,11 @@ export class MainPageComponent implements OnInit{
 
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
   constructor(
+    private sharedService: SharedService,
     private roleService: RoleService,
-    private router: Router) {
+    private router: Router,
+    private cityService: CityService) {
+    super();
     this.activeRole = 'gardener';
     this.dataSource.data = TREE_DATA;
   }
@@ -89,6 +96,7 @@ export class MainPageComponent implements OnInit{
       this.activeRole = role;
     });
     this.loadOrders();
+    this.getCities();
   }
 
   canLoadMore(): boolean {
@@ -144,6 +152,17 @@ export class MainPageComponent implements OnInit{
       }
     });
     return selectedCategories;
+  }
+
+  getCities(): void {
+    if (this.hasKeyInStorage(StorageKey.city)) {
+      this.citys = this.getDataStorage(StorageKey.city);
+    } else {
+      this.cityService.getCity().subscribe(response => {
+        this.citys = response;
+        this.setDataStorage(StorageKey.city, this.citys);
+      });
+    }
   }
 
   toggleFilter() {
