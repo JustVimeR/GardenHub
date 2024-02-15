@@ -18,12 +18,9 @@ jobs:
         working-directory: ./greenhub
         run: npm install && npm run build
       
-      # - name: rename base-tag to work with GitHub Pages
-      #   run: sed -i 's/<base href="\/" \/>/<base href="\/anngel\/" \/>/g' release/wwwroot/index.html
-      
       - name: copy 404
-        working-directory: ./greenhub
-        run: cp dist/index.html dist/404.html
+        working-directory: ./greenhub/dist/greenhub
+        run: cp index.html 404.html
       
       - name: Add .nojekyll
         working-directory: ./greenhub
