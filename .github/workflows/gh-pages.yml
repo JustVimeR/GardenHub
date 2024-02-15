@@ -15,15 +15,18 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Publish Angular App
+        working-directory: ./greenhub
         run: npm run build
       
       # - name: rename base-tag to work with GitHub Pages
       #   run: sed -i 's/<base href="\/" \/>/<base href="\/anngel\/" \/>/g' release/wwwroot/index.html
       
       - name: copy 404
+        working-directory: ./greenhub
         run: cp dist/index.html dist/404.html
       
       - name: Add .nojekyll
+        working-directory: ./greenhub
         run: touch dist/.nojekyll
       
       - name: Deploy 🚀
@@ -31,4 +34,4 @@ jobs:
         with:
           token	: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
-          folder: dist
+          folder: ./greenhub/dist
