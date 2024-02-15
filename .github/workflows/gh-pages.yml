@@ -16,7 +16,7 @@ jobs:
 
       - name: Publish Angular App
         working-directory: ./greenhub
-        run: npm run build
+        run: npm install && npm run build
       
       # - name: rename base-tag to work with GitHub Pages
       #   run: sed -i 's/<base href="\/" \/>/<base href="\/anngel\/" \/>/g' release/wwwroot/index.html
