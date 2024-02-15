@@ -1,12 +1,38 @@
 import { Component } from '@angular/core';
 import { OrderStatus } from 'src/app/models/enums/order-status';
+import StorageService from 'src/app/services/storage.service';
+import { UserProfileService } from 'src/app/services/user-profile.service';
+import { OnInit } from '@angular/core';
+import { StorageKey } from 'src/app/models/enums/storage-key';
 
 @Component({
   selector: 'app-my-profile',
   templateUrl: './my-profile.component.html',
   styleUrls: ['./my-profile.component.scss']
 })
-export class MyProfileComponent {
+export class MyProfileComponent extends StorageService implements OnInit{
+  
+  selfUserProfile: any = {};
+
+  constructor(
+    private userProfileService: UserProfileService) {
+    super();
+  }
+
+  ngOnInit() {
+    this.getUserProfile();
+  }
+
+  getUserProfile(): void {
+    if (this.hasKeyInStorage(StorageKey.userProfile)) {
+      this.selfUserProfile = this.getDataStorage(StorageKey.userProfile);
+    } else {
+      this.userProfileService.getSelfUserProfile().subscribe(response => {
+        this.selfUserProfile = response;
+        this.setDataStorage(StorageKey.userProfile, this.selfUserProfile);
+      });
+    }
+  }
 
   toggleHeart(order: any) {
     order.isHeartClicked = !order.isHeartClicked;

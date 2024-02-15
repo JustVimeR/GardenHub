@@ -9,6 +9,8 @@ import { CityService } from 'src/app/services/city.service';
 import StorageService from 'src/app/services/storage.service';
 import { SharedService } from 'src/app/services/shared.service';
 import { StorageKey } from 'src/app/models/enums/storage-key';
+import { City } from 'src/app/models/City';
+import { ApiResponse } from 'src/app/models/ApiResponse';
 
 interface ServiceNode {
   name: string;
@@ -54,12 +56,15 @@ interface ExampleFlatNode {
 })
 export class MainPageComponent extends StorageService implements OnInit{
   citys: any[] = [];
+  cities: any[] = [];
+  selectedCity: City | null = null;
   isFilterOpen: boolean = false;
   currentPageIndex = 0;
   ordersPerPage = 4;
   visibleOrders: any = [];
 
   activeRole: 'gardener' | 'housekeeper';
+
   private _transformer = (node: ServiceNode, level: number) => {
     return {
       expandable: !!node.children && node.children.length > 0,
@@ -156,14 +161,35 @@ export class MainPageComponent extends StorageService implements OnInit{
 
   getCities(): void {
     if (this.hasKeyInStorage(StorageKey.city)) {
-      this.citys = this.getDataStorage(StorageKey.city);
+      this.cities = this.getDataStorage(StorageKey.city);
     } else {
-      this.cityService.getCity().subscribe(response => {
-        this.citys = response;
-        this.setDataStorage(StorageKey.city, this.citys);
+      this.cityService.getCities().subscribe(response => {
+        this.cities = response;
+        this.setDataStorage(StorageKey.city, this.cities);
       });
     }
   }
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   toggleFilter() {
     this.isFilterOpen = !this.isFilterOpen;
