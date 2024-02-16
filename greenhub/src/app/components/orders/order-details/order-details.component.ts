@@ -1,15 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { OrderStatus } from 'src/app/models/enums/order-status';
+import StorageService from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-order-details',
   templateUrl: './order-details.component.html',
   styleUrls: ['./order-details.component.scss']
 })
-export class OrderDetailsComponent {
+export class OrderDetailsComponent extends StorageService implements OnInit{
 
-  constructor(private router: Router){
+  fakeData = {
+    status: OrderStatus.work
+  }
+  
+  savedRole = this.storageService.getStringStorage('activeRole');
+  constructor(
+    private router: Router,
+    private storageService: StorageService
+    ){
+    super();  
+  }
 
+  ngOnInit(){
+    console.log(this.savedRole)
   }
 
   back() {
@@ -19,4 +33,7 @@ export class OrderDetailsComponent {
   viewAuthor() {
     this.router.navigateByUrl(`api/orders/gardener-profile`);
   }
+  
+
+
 }
