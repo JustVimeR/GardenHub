@@ -18,6 +18,10 @@ jobs:
         working-directory: ./greenhub
         run: npm install && npm run build
       
+      - name: rename base-tag to work with GitHub Pages
+        working-directory: ./greenhub/dist/greenhub
+        run: sed -i 's/<base href="\/" \/>/<base href="\/GardenHub\/" \/>/g' index.html
+
       - name: copy 404
         working-directory: ./greenhub/dist/greenhub
         run: cp index.html 404.html
