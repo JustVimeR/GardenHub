@@ -23,12 +23,12 @@ jobs:
         run: cp index.html 404.html
       
       - name: Add .nojekyll
-        working-directory: ./greenhub
-        run: touch dist/.nojekyll
+        working-directory: ./greenhub/dist/greenhub
+        run: touch .nojekyll
       
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           token	: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
-          folder: ./greenhub/dist
+          folder: ./greenhub/dist/greenhub
