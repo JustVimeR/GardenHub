@@ -20,7 +20,7 @@ jobs:
       
       - name: rename base-tag to work with GitHub Pages
         working-directory: ./greenhub/dist/greenhub
-        run: sed -i 's/<base href="\/" \/>/<base href="\/GardenHub\/" \/>/g' index.html
+        run: sed -i 's/<base href="\/" \/>/<base href="\/GardenHub\/" \/>/g' ./index.html
 
       - name: copy 404
         working-directory: ./greenhub/dist/greenhub
