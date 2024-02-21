@@ -11,6 +11,8 @@
     border: solid 1px;
     border-radius: 10px;
     padding: 80px 40px 80px 40px;
+
+    transition: all 0.3s ease;
 }
 .stars-container{
     margin-bottom: 50px;
@@ -21,6 +23,29 @@
     width: 25px;
     height: 25px;
     padding: 0px;
+}
+.star-icon {
+    width: 25px;
+    height: 25px;
+    transition: transform  0.3s ease;
+}
+
+.star-button {
+    padding: 0px;
+    margin-right: 3px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+.star-button:hover .star-icon {
+    
+    content: url('../../../../assets/star-fill.svg');
+    transform: scale(1.2);
+    
+}
+
+.star-button:hover {
+    transform: scale(1.1); 
 }
 .text-successful{
     margin-bottom: 50px;
