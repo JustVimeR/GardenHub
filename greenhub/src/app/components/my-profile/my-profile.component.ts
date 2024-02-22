@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { OrderStatus } from 'src/app/models/enums/order-status';
 import StorageService from 'src/app/services/storage.service';
 import { UserProfileService } from 'src/app/services/user-profile.service';
@@ -10,7 +10,7 @@ import { StorageKey } from 'src/app/models/enums/storage-key';
   templateUrl: './my-profile.component.html',
   styleUrls: ['./my-profile.component.scss']
 })
-export class MyProfileComponent extends StorageService implements OnInit{
+export class MyProfileComponent extends StorageService implements OnInit, OnDestroy{
   
   selfUserProfile: any = {};
 
@@ -18,6 +18,7 @@ export class MyProfileComponent extends StorageService implements OnInit{
     private userProfileService: UserProfileService) {
     super();
   }
+ 
 
   ngOnInit() {
     this.getUserProfile();
@@ -77,4 +78,9 @@ export class MyProfileComponent extends StorageService implements OnInit{
       rate: 4
     }
   ]
+  ngOnDestroy(): void {
+    if (this.selfUserProfile) {
+      this.selfUserProfile.unsubscribe();
+    }
+  }
 }
