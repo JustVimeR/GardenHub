@@ -121,7 +121,7 @@
         display: flex;
         flex-wrap: wrap;
         align-items: flex-start;
-        gap: 49px;
+        gap: 58px;
 
         .details_photo {
             width: 280px;
@@ -132,6 +132,7 @@
     .details {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         margin-top: 70px;
         margin-bottom: 157px;
 
@@ -161,18 +162,59 @@
             align-items: center;
             gap: 15px;
 
-            input {
+            .custom-checkbox {
                 width: 30px;
                 height: 30px;
                 border-radius: 7px;
-                accent-color: rgb(131, 223, 137);
+                border: 1px solid rgb(131, 223, 137);
+                background-color: #83DF89 scale(0);
+                vertical-align: sub;
+
+                position: relative;
+            }
+            
+
+            .custom-checkbox::before{
+                content:'';
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                background-image: url("/assets/info/check-mark.svg");
+                background-size: contain;
+                background-repeat: no-repeat;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%) scale(0);
+                margin-top: 3px;
+            }
+
+            .real-checkbox {
+                position: absolute;
+                z-index: 1;
+                width: 30px;
+                height: 30px;
+                opacity: 0;
                 cursor: pointer;
+            }
+
+            .real-checkbox:focus + .custom-checkbox {
+                box-shadow: 0px 0px 0px 1px #83DF89, 0px 0px 10px #83DF89;
+            }
+
+            .real-checkbox:checked + .custom-checkbox::before {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            .real-checkbox:checked + .custom-checkbox{
+                background-color: #83DF89;
+                transform: scale(1);
             }
 
             label {
 
                 font-size: 30px;
                 font-weight: 400;
+                cursor: pointer;
             }
         }
 

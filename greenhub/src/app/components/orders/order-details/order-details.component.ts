@@ -30,9 +30,11 @@ export class OrderDetailsComponent extends StorageService implements OnInit{
   }
 
   viewAuthor() {
+    this.router.navigateByUrl(`api/homeowner-profile`);
+  }
+  viewPerformer() {
     this.router.navigateByUrl(`api/orders/gardener-profile`);
   }
-  
 
 
 }

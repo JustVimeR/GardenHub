@@ -59,13 +59,26 @@
                     <div class="details_author">Автор:
                         <span (click)="viewAuthor()">iryna_shevchenko</span>
                     </div>
+                    <ng-container *ngIf="savedRole === 'housekeeper'">
+                        <ng-container *ngIf="fakeData.status === 'В роботі'">
+                            <div class="details_author">Працює:
+                                <span (click)="viewPerformer()">emiliart</span>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="fakeData.status === 'Виконано'">
+                            <div class="details_author">Виконавець:
+                                <span (click)="viewPerformer()">emiliart</span>
+                            </div>
+                        </ng-container>
+                    </ng-container>
                 </div>
 
                 <ng-container *ngIf="this.savedRole === 'gardener'; else housekeeperBlock">
                     <ng-container *ngIf="fakeData.status === 'Виконано'">
                         <div class="add-to-portfolio">
-                            <input type="checkbox" id="addToPortfolio" name="addToPortfolio">
-                            <label for="addToPortfolio">Додати в профіль</label>
+                            <input type="checkbox" id="check" name="addToPortfolio" class="real-checkbox">
+                            <span class="custom-checkbox"></span>   
+                            <label for="check">Додати в профіль</label>
                         </div>
                     </ng-container>
                 </ng-container>
