@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-successfull-order',
   templateUrl: './successfull-order.component.html',
   styleUrls: ['./successfull-order.component.scss']
 })
-export class SuccessfullOrderComponent {
+export class SuccessfullOrderComponent implements OnInit {
   starsArray: number[] = [1, 2, 3, 4, 5];
   hoveredStarIndex: number | null = null;
   clickedStarIndex: number | null = null;
@@ -14,6 +14,15 @@ export class SuccessfullOrderComponent {
   starRating: number | null = null;
 
   constructor() {
+    
+  }
+  
+  ngOnInit(): void {
+    this.applyStars();
+    
+  }
+  
+  applyStars() : void {
     this.starIcons = this.starsArray.map(() => '../../../assets/star.svg');
   }
 
