@@ -9,11 +9,11 @@ import StorageService from 'src/app/services/storage.service';
   styleUrls: ['./order-details.component.scss']
 })
 export class OrderDetailsComponent extends StorageService implements OnInit{
-
+  color: string = '';
   fakeData = {
-    status: OrderStatus.work
+    status: OrderStatus.complited
   }
-  
+
   savedRole = this.storageService.getStringStorage('activeRole');
   constructor(
     private router: Router,
@@ -21,7 +21,6 @@ export class OrderDetailsComponent extends StorageService implements OnInit{
     ){
     super();  
   }
-
   ngOnInit(){
     console.log(this.savedRole)
   }
@@ -31,9 +30,11 @@ export class OrderDetailsComponent extends StorageService implements OnInit{
   }
 
   viewAuthor() {
+    this.router.navigateByUrl(`api/homeowner-profile`);
+  }
+  viewPerformer() {
     this.router.navigateByUrl(`api/orders/gardener-profile`);
   }
-  
 
 
 }
