@@ -36,4 +36,16 @@ ul {
   }
 
 
-  
+  @media (max-width: 425px) {
+    .header{
+      font-size: 16px;
+    }
+
+    ul{
+      
+      gap: 10px;
+      li {
+        font-size: 14px;
+      }
+    }
+  }

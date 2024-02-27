@@ -100,7 +100,53 @@
     font-weight: 600;
 }
 
-
+@media (max-width: 425px) {
+    .main-page_info_wrapper{
+        justify-content:left;
+    }
+    .form-wrapper{
+        margin: 10px;
+        width: 220px;
+        .form-group{
+    
+            .input_header{
+                color: #000;
+                font-size: 14px;
+                font-weight: 500;
+            }
+    
+            .form-control{
+                width: 220px;
+                height: 39px;
+            }
+        }
+       
+    }
+    .user-photo_wrapper{
+        .user-photo{ 
+            width: 100px;
+            height: 100px;
+        }
+    
+        .user-photo-change_btn{
+            width: 96px;
+            height: 27px;
+           
+            font-size: 14px;
+            font-weight: 600;
+        }  
+    }
+    .form-control{
+        width: 220px !important;
+        height: 39px;
+    }
+    .btn-comfirm{
+        margin: 0px 0 0 0px;
+        gap: 10px;
+        font-size: 14px;
+        
+    }
+}
 
 
   

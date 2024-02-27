@@ -127,3 +127,50 @@
         }
     }
 }
+@media (max-width: 425px) {
+    .order{
+        width: 370px;
+        height: 260px;
+        gap: 10px;
+        .order-title_wrapper{
+            
+            .order_title{
+                width: 202px;
+                font-size: 15px;
+            }
+
+            .order_status{
+                color: #83DF89;
+                font-size: 14px;
+                font-weight: 400;
+            }
+        }
+        .order_subtitle{
+            font-size: 14px;
+    
+        }
+    
+        .order_price{
+            font-size: 14px;
+                
+        }
+        .type-of-work_list{
+            .type-of-work{
+                font-size: 12px;
+            }
+        }
+        .order_footer{
+            .details_btn{
+                width: 123px;
+                height: 15px;
+                font-size: 14px;
+            }
+    
+            .heart_btn{
+                margin-left: 170px;
+                width: 28px;
+                height: 28px;
+            }
+        }
+    }
+}

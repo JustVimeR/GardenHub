@@ -43,8 +43,8 @@
         </div>
         <div class="filter-container">
             <div class="filter_wrapper" (click)="toggleFilter()">
-                <img src="../../../assets/filtericon.png" alt="filter" class="filter_img">
-                <div class="order_text">Фільтри</div>
+                <img src="../../../assets/filtericon.png" alt="filter" class="filter_img" style="padding-left: 150px;">
+                <div class="order_text" style="font-weight: 16;">Фільтри</div>
             </div>
 
             <div class="filter-open_wrapper" *ngIf="isFilterOpen">
@@ -94,23 +94,23 @@
         <div class="header">
             Як працює GARDENHUB
         </div>
-        <div class="steper_wrapper">
+        <div class="steper_wrapper" style="margin-top: 50px;">
             <div class="step">
                 <img src="../../../assets/steper/orderpic.png" alt="order-menu" class="step-order">
-                <button class="create_order" (click)="goToCreateOrder()">Створіть замовлення</button>
+                <button class="create_order" (click)="goToCreateOrder()" style="width: 50px;  ">Створіть замовлення</button>
             </div>
             <div class="step-arrow">
-                <img src="../../../assets/steper/arrow.png" alt="arrow" class="arrow">
+                <img src="../../../assets/steper/arrow.png" alt="arrow" class="arrow" style="width: 10px; height: 10px; ">
             </div>
             <div class="step step-worker-wrap">
-                <img src="../../../assets/steper/workerpic.png" alt="step-worker" class="step-worker">
+                <img src="../../../assets/steper/workerpic.png" alt="step-worker" class="step-worker" style="width: 30px; height: 30px;">
                 <div class="step_descr">Оберіть садівника серед бажаючих</div>
             </div>
             <div class="step-arrow">
-                <img src="../../../assets/steper/arrow.png" alt="arrow" class="arrow">
+                <img src="../../../assets/steper/arrow.png" alt="arrow" class="arrow"style="width: 10px; height: 10px;">
             </div>
             <div class="step step-hand">
-                <img src="../../../assets/steper/handpic.png" alt="step-final" class="step-final">
+                <img src="../../../assets/steper/handpic.png" alt="step-final" class="step-final"style="width: 30px; height: 30px;">
                 <div class="step_descr">Закрийте замовлення та залиште відгук</div>
             </div>
         </div>

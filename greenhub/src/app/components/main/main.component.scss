@@ -47,7 +47,7 @@
 
 .slim-sidebar {
   margin-top: 80px;
-  width: 422px;
+  width: 122px;
   min-height: 374px;
   padding: 15px;
   border-radius: 10px;
@@ -58,7 +58,7 @@
   left: 0;        
   z-index: 1000;  
   transform: translateX(-100%);
-  transition: transform 0.3s ease-out; 
+  transition: transform 0.5s ease-out; 
 }
 
 .slim-sidebar.hide {
@@ -269,6 +269,11 @@ ion-icon {
 }
 
 @media (max-width: 425px) {
+  .footer_wrapper{
+    height: 238px;
+    padding: 0px 0px;
+    background: #545454;
+  }
   .nav-pannel-logo{
     display: none;
   }
@@ -316,11 +321,27 @@ ion-icon {
   margin-left: 37px;
   color: #000;
   width: 390px;
-height: 165.266px;
+  height: 165.266px;
   font-family: Lexend Deca;
   font-size: 32px;
   font-weight: 600;
   text-decoration: none;
 }
+.nav-pannel-menu-btn{
+  margin: 10px;
+}
+.help_wrapper{
+  display: flex;
+  flex-direction: column;
+  .header{
+    font-size: 16px;
+    font-weight: 500;
+  }
 
+  .subheader{
+    margin-top: 25px;
+    font-size: 12px;
+    font-weight: 400;
+  }
+}
 }
