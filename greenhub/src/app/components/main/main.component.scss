@@ -178,13 +178,12 @@ ion-icon {
 
 @media (max-width: 1199.98px) {
   .slim-sidebar {
-    margin-left: 0px !important;
+
     z-index: 999;
-    height: 100vh;
     left: 0px !important;
 
     &.hide {
-      margin-left: -230px !important;
+      margin-left: 0px !important;
       left: 0px !important;
     }
   }
